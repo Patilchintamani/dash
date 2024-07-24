@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 # Global variable to store data
 data = None
-
+#lllll
 @app.route('/')
 def index():
     return '''
