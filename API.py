@@ -60,7 +60,7 @@ logging.basicConfig(level=logging.DEBUG)
 @app.route('/')
 def home():
     return redirect('/login')
-
+###Login#######
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -76,7 +76,7 @@ def login():
             return jsonify({"message": "Login failed. Please check your credentials and try again."}), 401
     else:
         return jsonify({"message": "Invalid method"}), 401
-
+######Signup###########
 @app.route('/signup', methods=['POST'])
 def signup():
     if request.method == 'POST':
@@ -102,7 +102,7 @@ def signup():
             }
             result = users_collection.insert_one(new_user)
             return jsonify({"message": "Signup successful!"}), 201
-
+#######Forgot Password###########
 @app.route('/forget', methods=['GET', 'POST'])
 def forget():
     if request.method == 'POST':
@@ -163,7 +163,7 @@ def reset_password(token):
             logging.error(f"Exception during password reset: {e}")
             return jsonify({"message": "Error during password reset!", "status": "error"}), 500
     return jsonify({"message": "Reset password form", "status": "info"})
-
+###Change Password#########
 @app.route('/change_password', methods=['POST'])
 def change_password():
     try:
@@ -190,7 +190,7 @@ def change_password():
             return jsonify({'error': 'User not found.'}), 403
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
+######print USER data in user profile########
 @app.route('/get_user', methods=['GET'])
 def get_user():
     if db is None or users_collection is None:
@@ -213,7 +213,7 @@ def get_user():
         return jsonify(user), 200
     else:
         return jsonify({"error": "User not found"}), 404
-
+####Update profile###########
 @app.route('/update_contact_info', methods=['POST'])
 def update_contact_info():
     data = request.get_json()
@@ -248,7 +248,7 @@ def update_contact_info():
     return jsonify({"message": "Contact information updated successfully"}), 200
     ################################## Visualization Model ##################################
 
-
+###########upload file in module##########
 @app.route('/upload', methods=['POST'])
 def upload_file():
     global data
@@ -276,7 +276,7 @@ def upload_file():
             return jsonify({"error": f"Error parsing file: {str(e)}"}), 400
     else:
         return jsonify({"error": "Invalid file type. Please upload a CSV or Excel file."}), 400
-
+########## Attributes selection############
 @app.route('/attributes', methods=['GET'])
 def attributes():
     global data
@@ -285,7 +285,7 @@ def attributes():
     
     columns = data.columns.tolist()
     return jsonify({"columns": columns})
-
+########Analyze Data#############
 @app.route('/analyze', methods=['POST'])
 def analyze():
     global data
