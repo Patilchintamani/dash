@@ -28,11 +28,11 @@ data = None
 
 
 # Configuration
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'pravindpatil22112000')
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', '000000000000000000')
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME', 'mtesting488@gmail.com')
-app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD', 'axxb wowq cboc fiog')
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME', 'example@gmail.com')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD', 'xxxx xxxx xxxx xxxx')
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 
